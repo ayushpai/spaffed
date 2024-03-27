@@ -1,0 +1,33 @@
+<!-- Auto layout, variables, and unit scale are not yet supported -->
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+    <View
+        android:id="@+id/image_2"
+        android:layout_width="360dp"
+        android:layout_height="800dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/image_2"
+        android:alpha="0.3"
+        />
+
+        <!-- drawable/image_2.xml -->
+    <vector
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:width="360dp"
+    android:height="800dp"
+    android:viewportWidth="360"
+    android:viewportHeight="800"
+        >
+    <group>
+        <clip-path
+            android:pathData="M0 0H360V800H0V0Z"
+            />
+    </group>
+    </vector>
+</androidx.constraintlayout.widget.ConstraintLayout>
