@@ -13,4 +13,18 @@
 
 
     <string name="font_primary">Helvetica</string>
+    <string name="your">Your</string>
+    <string name="date">{date}</string>
+    <string name="your_music_this_week">Your Music This Week</string>
+    <string name="your_music_this_month">Your Music This Month</string>
+    <string name="your_music_this_year">Your Music This Year</string>
+    <string name="top_tracks">Top Tracks</string>
+    <string name="_1">1</string>
+    <string name="_2">2</string>
+    <string name="_3">3</string>
+    <string name="_4">4</string>
+    <string name="_5">5</string>
+    <string name="top_artists">Top Artists</string>
+    <string name="top_playlists">Top Playlists</string>
+    <string name="top_genre_text">Interesting...\nListening to a lot of {top_genre}\nI can tell.</string>
 </resources>

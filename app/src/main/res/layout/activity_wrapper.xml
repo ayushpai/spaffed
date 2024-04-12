@@ -20,22 +20,228 @@
             android:layout_height="match_parent"
             android:background="@color/accent_light">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <LinearLayout
+                xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="match_parent"
-                android:layout_height="0dp">
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:orientation="vertical"
+                android:gravity="center">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="25dp"
+                    android:textStyle="bold"
+                    android:text="@string/your"
+                    android:textSize="30sp" />
+
+                <TextView
+                    android:id="@+id/week_date_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="@string/date"
+                    android:textSize="50sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:textStyle="bold"
+                    android:text="@string/app_name"
+                    android:textSize="30sp" />
+
+                <TextView
+                    android:id="@+id/week_your_music_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:text="Scroll View 1"
-                    android:textSize="30sp"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:text="@string/your_music_this_week"
+                    android:textSize="20sp" />
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:orientation="horizontal">
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/top_tracks" />
+
+                        <TextView
+                            android:id="@+id/week_track_1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/_1" />
+
+                        <TextView
+                            android:id="@+id/week_track_2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/_2" />
+
+                        <TextView
+                            android:id="@+id/week_track_3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/_3" />
+
+                        <TextView
+                            android:id="@+id/week_track_4"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/_4" />
+
+                        <TextView
+                            android:id="@+id/week_track_5"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/_5" />
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/week_track_img"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:src="@drawable/temp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/week_artist_img"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:src="@drawable/temp" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/top_artists" />
+
+                        <TextView
+                            android:id="@+id/week_artist_1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/_1" />
+
+                        <TextView
+                            android:id="@+id/week_artist_2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/_2" />
+
+                        <TextView
+                            android:id="@+id/week_artist_3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/_3" />
+
+                        <TextView
+                            android:id="@+id/week_artist_4"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/_4" />
+
+                        <TextView
+                            android:id="@+id/week_artist_5"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/_5" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/top_playlists" />
+
+                        <TextView
+                            android:id="@+id/week_playlist_1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/_1" />
+
+                        <TextView
+                            android:id="@+id/week_playlist_2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/_2" />
+
+                        <TextView
+                            android:id="@+id/week_playlist_3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/_3" />
+
+                        <TextView
+                            android:id="@+id/week_playlist_4"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/_4" />
+
+                        <TextView
+                            android:id="@+id/week_playlist_5"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/_5" />
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/week_playlist_img"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:src="@drawable/temp" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/week_top_genre_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginBottom="100dp"
+                    android:text="@string/top_genre_text"
+                    android:textSize="22sp" />
+
+            </LinearLayout>
 
         </ScrollView>
 
@@ -44,22 +250,251 @@
             android:layout_height="match_parent"
             android:background="@color/accent_dark">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <LinearLayout
+                xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="match_parent"
-                android:layout_height="0dp">
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:orientation="vertical"
+                android:gravity="center">
 
                 <TextView
+                    android:textColor="@color/white"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="25dp"
+                    android:textStyle="bold"
+                    android:text="@string/your"
+                    android:textSize="30sp" />
+
+                <TextView
+                    android:textColor="@color/white"
+                    android:id="@+id/month_date_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="@string/date"
+                    android:textSize="50sp" />
+
+                <TextView
+                    android:textColor="@color/white"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:textStyle="bold"
+                    android:text="@string/app_name"
+                    android:textSize="30sp" />
+
+                <TextView
+                    android:textColor="@color/white"
+                    android:id="@+id/month_your_music_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:text="Scroll View 2"
-                    android:textSize="30sp"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:text="@string/your_music_this_month"
+                    android:textSize="20sp" />
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:orientation="horizontal">
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                    android:textColor="@color/white"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/top_tracks" />
+
+                        <TextView
+                    android:textColor="@color/white"
+                            android:id="@+id/month_track_1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/_1" />
+
+                        <TextView
+                    android:textColor="@color/white"
+                            android:id="@+id/month_track_2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/_2" />
+
+                        <TextView
+                    android:textColor="@color/white"
+                            android:id="@+id/month_track_3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/_3" />
+
+                        <TextView
+                    android:textColor="@color/white"
+                            android:id="@+id/month_track_4"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/_4" />
+
+                        <TextView
+                    android:textColor="@color/white"
+                            android:id="@+id/month_track_5"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/_5" />
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/month_track_img"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:src="@drawable/temp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/month_artist_img"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:src="@drawable/temp" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                    android:textColor="@color/white"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/top_artists" />
+
+                        <TextView
+                    android:textColor="@color/white"
+                            android:id="@+id/month_artist_1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/_1" />
+
+                        <TextView
+                    android:textColor="@color/white"
+                            android:id="@+id/month_artist_2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/_2" />
+
+                        <TextView
+                    android:textColor="@color/white"
+                            android:id="@+id/month_artist_3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/_3" />
+
+                        <TextView
+                    android:textColor="@color/white"
+                            android:id="@+id/month_artist_4"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/_4" />
+
+                        <TextView
+                    android:textColor="@color/white"
+                            android:id="@+id/month_artist_5"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/_5" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                    android:textColor="@color/white"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/top_playlists" />
+
+                        <TextView
+                    android:textColor="@color/white"
+                            android:id="@+id/month_playlist_1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/_1" />
+
+                        <TextView
+                    android:textColor="@color/white"
+                            android:id="@+id/month_playlist_2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/_2" />
+
+                        <TextView
+                    android:textColor="@color/white"
+                            android:id="@+id/month_playlist_3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/_3" />
+
+                        <TextView
+                    android:textColor="@color/white"
+                            android:id="@+id/month_playlist_4"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/_4" />
+
+                        <TextView
+                    android:textColor="@color/white"
+                            android:id="@+id/month_playlist_5"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/_5" />
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/month_playlist_img"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:src="@drawable/temp" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:textColor="@color/white"
+                    android:id="@+id/month_top_genre_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginBottom="100dp"
+                    android:text="@string/top_genre_text"
+                    android:textSize="22sp" />
+
+            </LinearLayout>
 
         </ScrollView>
 
@@ -68,22 +503,251 @@
             android:layout_height="match_parent"
             android:background="@color/primary">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <LinearLayout
+                xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="match_parent"
-                android:layout_height="0dp">
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:orientation="vertical"
+                android:gravity="center">
 
                 <TextView
+                    android:textColor="@color/white"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="25dp"
+                    android:textStyle="bold"
+                    android:text="@string/your"
+                    android:textSize="30sp" />
+
+                <TextView
+                    android:textColor="@color/white"
+                    android:id="@+id/year_date_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="@string/date"
+                    android:textSize="50sp" />
+
+                <TextView
+                    android:textColor="@color/white"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:textStyle="bold"
+                    android:text="@string/app_name"
+                    android:textSize="30sp" />
+
+                <TextView
+                    android:textColor="@color/white"
+                    android:id="@+id/year_your_music_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:text="Scroll View 3"
-                    android:textSize="30sp"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:text="@string/your_music_this_year"
+                    android:textSize="20sp" />
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:orientation="horizontal">
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                    android:textColor="@color/white"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/top_tracks" />
+
+                        <TextView
+                    android:textColor="@color/white"
+                            android:id="@+id/year_track_1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/_1" />
+
+                        <TextView
+                    android:textColor="@color/white"
+                            android:id="@+id/year_track_2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/_2" />
+
+                        <TextView
+                    android:textColor="@color/white"
+                            android:id="@+id/year_track_3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/_3" />
+
+                        <TextView
+                    android:textColor="@color/white"
+                            android:id="@+id/year_track_4"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/_4" />
+
+                        <TextView
+                    android:textColor="@color/white"
+                            android:id="@+id/year_track_5"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/_5" />
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/year_track_img"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:src="@drawable/temp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/year_artist_img"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:src="@drawable/temp" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                    android:textColor="@color/white"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/top_artists" />
+
+                        <TextView
+                    android:textColor="@color/white"
+                            android:id="@+id/year_artist_1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/_1" />
+
+                        <TextView
+                    android:textColor="@color/white"
+                            android:id="@+id/year_artist_2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/_2" />
+
+                        <TextView
+                    android:textColor="@color/white"
+                            android:id="@+id/year_artist_3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/_3" />
+
+                        <TextView
+                    android:textColor="@color/white"
+                            android:id="@+id/year_artist_4"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/_4" />
+
+                        <TextView
+                    android:textColor="@color/white"
+                            android:id="@+id/year_artist_5"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/_5" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                    android:textColor="@color/white"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/top_playlists" />
+
+                        <TextView
+                    android:textColor="@color/white"
+                            android:id="@+id/year_playlist_1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/_1" />
+
+                        <TextView
+                    android:textColor="@color/white"
+                            android:id="@+id/year_playlist_2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/_2" />
+
+                        <TextView
+                    android:textColor="@color/white"
+                            android:id="@+id/year_playlist_3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/_3" />
+
+                        <TextView
+                    android:textColor="@color/white"
+                            android:id="@+id/year_playlist_4"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/_4" />
+
+                        <TextView
+                    android:textColor="@color/white"
+                            android:id="@+id/year_playlist_5"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/_5" />
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/year_playlist_img"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:src="@drawable/temp" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:textColor="@color/white"
+                    android:id="@+id/year_top_genre_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginBottom="100dp"
+                    android:text="@string/top_genre_text"
+                    android:textSize="22sp" />
+
+            </LinearLayout>
 
         </ScrollView>
 
