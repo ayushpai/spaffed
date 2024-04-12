@@ -58,7 +58,7 @@ public class SignupActivity extends AppCompatActivity {
         if (user != null) {
             Toast.makeText(this, "User created successfully", Toast.LENGTH_SHORT).show();
             // later change this to nav to spotify sign in activity
-            Intent intent = new Intent(SignupActivity.this, HomeActivity.class);
+            Intent intent = new Intent(SignupActivity.this, SpotifyLoginActivity.class);
             startActivity(intent);
         } else {
             Toast.makeText(this, "User creation failed", Toast.LENGTH_SHORT).show();
