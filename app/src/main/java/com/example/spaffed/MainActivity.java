@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import android.util.Log;
+import android.view.Menu;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -27,14 +28,29 @@ public class MainActivity extends AppCompatActivity {
     private SpotifyAppRemote mSpotifyAppRemote;
 
     Button loginBtn;
+    Button signupBtn;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        authenticateSpotify();
+        //authenticateSpotify();
+
+
+
+        loginBtn = findViewById(R.id.login_button);
+        signupBtn = findViewById(R.id.signup_button);
+
+        loginBtn.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+            startActivity(intent);
+        });
+
+        signupBtn.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, SignupActivity.class);
+            startActivity(intent);
+        });
 
     }
-
 
 
     private void authenticateSpotify() {
@@ -72,6 +88,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main_menu, menu);
+        return true;
+    }
 
 
 
