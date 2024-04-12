@@ -60,7 +60,7 @@ public class SpotifyLoginActivity extends AppCompatActivity {
         AuthorizationRequest.Builder builder =
                 new AuthorizationRequest.Builder(CLIENT_ID, AuthorizationResponse.Type.TOKEN, REDIRECT_URI);
 
-        builder.setScopes(new String[]{"user-top-read", "user-read-email"});
+        builder.setScopes(new String[]{"user-top-read", "user-read-email, user-read-private"});
         AuthorizationRequest request = builder.build();
 
         AuthorizationClient.openLoginActivity(this, REQUEST_CODE, request);
