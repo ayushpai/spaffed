@@ -13,6 +13,14 @@
         android:theme="@style/Theme.Spaffed"
         tools:targetApi="31">
         <activity
+
+            android:name=".WrappedLoadingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".WrapperActivity"
+            android:exported="true">
+        </activity>
+        <activity
             android:name=".SpotifyLoginActivity"
             android:exported="false" />
         <activity
@@ -27,9 +35,9 @@
         <activity
             android:name=".MainActivity"
             android:exported="true">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
             <intent-filter>
@@ -40,8 +48,15 @@
 <!--                // Must be the same in MainAcitivity, Gradle, and Spotify Dashboard!-->
             <data android:host="auth" android:scheme="com.example.spaffed"/>
 
+                <data
+                    android:host="auth"
+                    android:scheme="com.example.spaffed" />
             </intent-filter>
         </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>
