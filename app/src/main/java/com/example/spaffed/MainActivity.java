@@ -23,7 +23,7 @@ import com.spotify.sdk.android.auth.AuthorizationResponse;
 public class MainActivity extends AppCompatActivity {
 
     private static final int REQUEST_CODE = 1337;
-    private static final String REDIRECT_URI = "http://localhost:8888/callback";
+    private static final String REDIRECT_URI = "com.example.spaffed://auth";
     private static final String CLIENT_ID = "96cae4dc28e4467a8dffaa0c7b92135d";
     private SpotifyAppRemote mSpotifyAppRemote;
 
