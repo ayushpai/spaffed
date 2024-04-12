@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "884374013670",
+    "project_id": "spaffed-37a09",
+    "storage_bucket": "spaffed-37a09.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:884374013670:android:93a0f3bdcb5709ca5d9d27",
+        "android_client_info": {
+          "package_name": "com.example.spaffed"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDFMc2a1pV9h6Xs2anR00dFnbZQrVUoeKE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
