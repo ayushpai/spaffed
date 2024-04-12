@@ -3,6 +3,10 @@
     <string name="name">spaffed</string>
     <string name="action_settings">Settings</string>
     <string name="action_favorite">Favorite</string>
-
-
+    <string name="submit">Submit</string>
+    <string name="email">Spotify Email</string>
+    <string name="password">Spotify password</string>
+    <string name="signup">Sign Up</string>
+    <string name="signin">Sign in</string>
+    <string name="error">Email or Password does not exist</string>
 </resources>
