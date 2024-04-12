@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">spaffed</string>
     <string name="name">spaffed</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_favorite">Favorite</string>
+
+
 </resources>
