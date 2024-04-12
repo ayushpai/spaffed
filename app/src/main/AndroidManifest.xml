@@ -13,6 +13,9 @@
         android:theme="@style/Theme.Spaffed"
         tools:targetApi="31">
         <activity
+            android:name=".WrappedLoadingActivity"
+            android:exported="false" />
+        <activity
             android:name=".WrapperActivity"
             android:exported="false" />
         <activity
@@ -41,6 +44,10 @@
                     android:scheme="com.example.spaffed" />
             </intent-filter>
         </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>
