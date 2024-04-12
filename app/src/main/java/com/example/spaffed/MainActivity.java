@@ -53,41 +53,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    private void authenticateSpotify() {
-        AuthorizationRequest.Builder builder =
-                new AuthorizationRequest.Builder(CLIENT_ID, AuthorizationResponse.Type.TOKEN, REDIRECT_URI);
-
-        builder.setScopes(new String[]{"streaming"});
-        AuthorizationRequest request = builder.build();
-
-        AuthorizationClient.openLoginActivity(this, REQUEST_CODE, request);
-
-    }
-
-    protected void onActivityResult(int requestCode, int resultCode, Intent intent) {
-        super.onActivityResult(requestCode, resultCode, intent);
-
-        // Check if result comes from the correct activity
-        if (requestCode == REQUEST_CODE) {
-            AuthorizationResponse response = AuthorizationClient.getResponse(resultCode, intent);
-
-            switch (response.getType()) {
-                case TOKEN:
-                    Log.d("SpotifyAuth", "Token received: " + response.getAccessToken());
-                    // You can now use the token to make Spotify API calls
-                    break;
-                case ERROR:
-                    Log.e("SpotifyAuth", "Authentication error: " + response.getError());
-                    break;
-                default:
-                    Log.w("SpotifyAuth", "Received response of unknown type: " + response.getType());
-            }
-        } else {
-            Log.w("SpotifyAuth", "Unexpected request code: " + requestCode);
-        }
-    }
-
-
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main_menu, menu);
         return true;
