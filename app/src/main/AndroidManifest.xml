@@ -18,11 +18,6 @@
         <activity
             android:name=".WrapperActivity"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".SpotifyLoginActivity"
@@ -40,15 +35,11 @@
             android:name=".MainActivity"
             android:exported="true">
 
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.MAIN" />-->
-
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
-<!--            </intent-filter>-->
             <intent-filter>
-
-                <!-- // Match the scheme and host of the redirect URI -->
-                <!-- // Must be the same in MainAcitivity, Gradle, and Spotify Dashboard! -->
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter>
                 <data
                     android:host="auth"
                     android:scheme="com.example.spaffed" />
@@ -58,22 +49,6 @@
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
-
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-            <intent-filter>
-
-
-
-<!--                // Match the scheme and host of the redirect URI-->
-<!--                // Must be the same in MainAcitivity, Gradle, and Spotify Dashboard!-->
-            <data android:host="auth" android:scheme="com.example.spaffed"/>
-
-            </intent-filter>
-        </activity>
     </application>
 
 </manifest>
