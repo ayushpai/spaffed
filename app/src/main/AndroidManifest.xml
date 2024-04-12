@@ -13,7 +13,7 @@
         android:theme="@style/Theme.Spaffed"
         tools:targetApi="31">
         <activity
-            android:name=".WrapperActivity"
+            android:name=".SpotifyLoginActivity"
             android:exported="false" />
         <activity
             android:name=".HomeActivity"
@@ -34,11 +34,12 @@
             </intent-filter>
             <intent-filter>
 
-                <!-- // Match the scheme and host of the redirect URI -->
-                <!-- // Must be the same in MainAcitivity, Gradle, and Spotify Dashboard! -->
-                <data
-                    android:host="auth"
-                    android:scheme="com.example.spaffed" />
+
+
+<!--                // Match the scheme and host of the redirect URI-->
+<!--                // Must be the same in MainAcitivity, Gradle, and Spotify Dashboard!-->
+            <data android:host="auth" android:scheme="com.example.spaffed"/>
+
             </intent-filter>
         </activity>
     </application>
