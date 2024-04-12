@@ -14,7 +14,7 @@ android {
         versionCode = 1
         versionName = "1.0"
 
-        manifestPlaceholders["redirectSchemeName"] = "spaffed"
+        manifestPlaceholders["redirectSchemeName"] = "com.example.spaffed"
         manifestPlaceholders["redirectHostName"] = "auth"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
