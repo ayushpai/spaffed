@@ -14,6 +14,9 @@ android {
         versionCode = 1
         versionName = "1.0"
 
+        manifestPlaceholders["redirectSchemeName"] = "spaffed"
+        manifestPlaceholders["redirectHostName"] = "auth"
+
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -39,12 +42,14 @@ dependencies {
     implementation("com.google.android.material:material:1.11.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
     implementation(files(projectDir.path + "/spotify-app-remote-release-0.8.0.aar"))
-    implementation ("com.spotify.android:auth:1.2.5") // Maven dependency
+//    implementation ("com.spotify.android:auth:1.2.5") // Maven dependency
     implementation("com.google.firebase:firebase-auth:22.3.1")
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
     implementation ("androidx.recyclerview:recyclerview:1.2.0")
+    implementation("com.spotify.android:auth:2.1.1")
+    implementation("com.squareup.okhttp3:okhttp:4.9.3")
 
 
 }
