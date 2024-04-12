@@ -6,13 +6,20 @@
     android:layout_height="match_parent"
     tools:context=".EditProfileActivity">
 
+    <View
+        android:id="@+id/background_image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/landing_page_background" />
+
     <!-- "Welcome" Text -->
     <TextView
         android:id="@+id/welcomeTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Welcome John Doe"
-        android:textSize="24sp"
+        android:text="Welcome, John"
+        android:textColor="#FFFFFF"
+        android:textSize="50sp"
         app:layout_constraintBottom_toTopOf="@+id/editProfileHeader"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -25,7 +32,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/edit_profile"
-        android:textSize="18sp"
+        android:textSize="30sp"
+        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toTopOf="@+id/emailTextView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -40,6 +48,7 @@
         android:layout_height="wrap_content"
         android:text="Email:"
         android:textSize="16sp"
+        android:textColor="#FFFFFF"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editProfileHeader"
         android:layout_marginTop="30dp"
@@ -68,6 +77,7 @@
         android:layout_height="wrap_content"
         android:text="Password:"
         android:textSize="16sp"
+        android:textColor="#FFFFFF"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/emailTextView"
         android:layout_marginTop="30dp"
