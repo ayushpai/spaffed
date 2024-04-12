@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -26,10 +27,8 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-import io.grpc.okhttp.internal.proxy.Request;
 import okhttp3.Call;
 import okhttp3.Callback;
-import okhttp3.HttpUrl;
 import okhttp3.OkHttpClient;
 import okhttp3.Response;
 
@@ -38,7 +37,6 @@ public class SpotifyLoginActivity extends AppCompatActivity {
     private static final int REQUEST_CODE = 1337;
     private static final String REDIRECT_URI = "com.example.spaffed://auth";
     private static final String CLIENT_ID = "96cae4dc28e4467a8dffaa0c7b92135d";
-
 
     private SpotifyAppRemote mSpotifyAppRemote;
     FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -56,7 +54,6 @@ public class SpotifyLoginActivity extends AppCompatActivity {
                 authenticateSpotify();
             }
         });
-
     }
 
     private void authenticateSpotify() {
@@ -67,29 +64,29 @@ public class SpotifyLoginActivity extends AppCompatActivity {
         AuthorizationRequest request = builder.build();
 
         AuthorizationClient.openLoginActivity(this, REQUEST_CODE, request);
-
-
-
     }
 
     protected void onActivityResult(int requestCode, int resultCode, Intent intent) {
         super.onActivityResult(requestCode, resultCode, intent);
 
-        // Check if result comes from the correct activity
         if (requestCode == REQUEST_CODE) {
             AuthorizationResponse response = AuthorizationClient.getResponse(resultCode, intent);
 
             switch (response.getType()) {
                 case TOKEN:
                     Log.d("SpotifyAuth", "Token received: " + response.getAccessToken());
-                    // You can now use the token to make Spotify API calls
                     String mAccessToken = response.getAccessToken();
                     if (mAccessToken == null) {
                         Toast.makeText(this, "You need to get an access token first!", Toast.LENGTH_SHORT).show();
                         return;
                     }
 
-                    // Create a request to get the user profile
+                    // Store mAccessToken in SharedPreferences
+                    SharedPreferences sharedPreferences = getSharedPreferences("SpotifyAuth", MODE_PRIVATE);
+                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                    editor.putString("mAccessToken", mAccessToken);
+                    editor.apply();
+
                     final okhttp3.Request request = new okhttp3.Request.Builder()
                             .url("https://api.spotify.com/v1/me")
                             .addHeader("Authorization", "Bearer " + mAccessToken)
@@ -112,20 +109,14 @@ public class SpotifyLoginActivity extends AppCompatActivity {
                                 final JSONObject jsonObject = new JSONObject(response.body().string());
                                 Log.d("HTTP", "Received data: " + jsonObject);
 
-                                // Extract display_name and email from the JSON object
                                 String displayName = jsonObject.getString("display_name");
                                 String email = jsonObject.getString("email");
 
-                                // Create a HashMap to store user data
                                 Map<String, Object> user = new HashMap<>();
-
                                 user.put("display_name", displayName);
                                 user.put("email", email);
                                 user.put("access_token", mAccessToken);
 
-
-
-                                // Create a DocumentReference pointing to a new document with ID mAccessToken
                                 DocumentReference newUserRef = db.collection("users").document(mAccessToken);
 
                                 newUserRef.set(user)
@@ -142,17 +133,14 @@ public class SpotifyLoginActivity extends AppCompatActivity {
                                             }
                                         });
 
-                                // Navigate to the HomeActivity
                                 Intent intent = new Intent(SpotifyLoginActivity.this, HomeActivity.class);
                                 startActivity(intent);
 
                             } catch (JSONException e) {
                                 Log.d("JSON", "Failed to parse data: " + e);
-
                             }
                         }
                     });
-
 
                     break;
                 case ERROR:
