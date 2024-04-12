@@ -13,16 +13,16 @@
         android:theme="@style/Theme.Spaffed"
         tools:targetApi="31">
         <activity
+            android:name=".DeleteAccount"
+            android:exported="false" />
+        <activity
             android:name=".WrappedLoadingActivity"
             android:exported="false" />
         <activity
             android:name=".WrapperActivity"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
+            android:exported="true"></activity>
         <activity
             android:name=".SpotifyLoginActivity"
             android:exported="false" />
@@ -36,13 +36,21 @@
             android:name=".LoginActivity"
             android:exported="false" />
         <activity
+            android:name=".EditProfileActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+                </intent-filter>
 
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.MAIN" />-->
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
-<!--            </intent-filter>-->
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
             <intent-filter>
                 <data
                     android:host="auth"

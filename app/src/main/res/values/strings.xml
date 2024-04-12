@@ -9,10 +9,16 @@
     <string name="signup">Sign Up</string>
     <string name="signin">Sign in</string>
     <string name="error">Email or Password does not exist</string>
+
+    <string name="confirm_changes">Confirm Changes</string>
+    <string name="delete_account">Delete Account</string>
+    <string name="edit_profile">Edit Profile:</string>
+
     <string name="loading">Loading</string>
 
 
     <string name="font_primary">Helvetica</string>
+
     <string name="your">Your</string>
     <string name="date">{date}</string>
     <string name="your_music_this_week">Your Music This Week</string>
@@ -27,4 +33,5 @@
     <string name="top_artists">Top Artists</string>
     <string name="top_playlists">Top Playlists</string>
     <string name="top_genre_text">Interesting...\nListening to a lot of {top_genre}\nI can tell.</string>
+
 </resources>
