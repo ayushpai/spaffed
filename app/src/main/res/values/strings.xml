@@ -16,8 +16,6 @@
 
     <string name="loading">Loading</string>
 
-    <string name="past_wraps_title">Past Wraps</string>
-    <string name="past_wraps_subtitle">A walk through history</string>
 
     <string name="font_primary">Helvetica</string>
 
@@ -34,10 +32,6 @@
     <string name="_5">5</string>
     <string name="top_artists">Top Artists</string>
     <string name="top_playlists">Top Playlists</string>
-    <string name="dd_mm_yy">DD/MM/YY</string>
-    <string name="username">user214</string>
-    <string name="public_wraps_title">Public Wraps</string>
-    <string name="community_subtitle">What the community is listening to</string>
     <string name="top_genre_text">Generating Spaffed AI Analysis...</string>
 
 </resources>

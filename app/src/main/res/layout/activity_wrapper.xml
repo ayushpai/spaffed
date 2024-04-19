@@ -1,10 +1,12 @@
-<?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".WrapperActivity">
+
+
+
 
     <ViewFlipper
         android:id="@+id/wrappedFlipper"
@@ -15,10 +17,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/accent_light">
+
+
 
             <LinearLayout
                 xmlns:android="http://schemas.android.com/apk/res/android"
@@ -42,7 +47,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
-                    android:text="@string/date"
+                    android:text="Awesome Week"
                     android:textSize="50sp" />
 
                 <TextView
@@ -175,62 +180,7 @@
 
                 </LinearLayout>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:orientation="horizontal">
 
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/top_playlists" />
-
-                        <TextView
-                            android:id="@+id/short_playlist_1"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/_1" />
-
-                        <TextView
-                            android:id="@+id/short_playlist_2"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/_2" />
-
-                        <TextView
-                            android:id="@+id/short_playlist_3"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/_3" />
-
-                        <TextView
-                            android:id="@+id/short_playlist_4"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/_4" />
-
-                        <TextView
-                            android:id="@+id/short_playlist_5"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/_5" />
-                    </LinearLayout>
-
-                    <ImageView
-                        android:id="@+id/short_playlist_img"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:src="@drawable/temp" />
-
-                </LinearLayout>
 
                 <TextView
                     android:id="@+id/short_top_genre_text"
@@ -274,7 +224,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
-                    android:text="@string/date"
+                    android:text="Splendid Month"
                     android:textSize="50sp" />
 
                 <TextView
@@ -308,41 +258,41 @@
                         android:orientation="vertical">
 
                         <TextView
-                    android:textColor="@color/white"
+                            android:textColor="@color/white"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/top_tracks" />
 
                         <TextView
-                    android:textColor="@color/white"
+                            android:textColor="@color/white"
                             android:id="@+id/medium_track_1"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/_1" />
 
                         <TextView
-                    android:textColor="@color/white"
+                            android:textColor="@color/white"
                             android:id="@+id/medium_track_2"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/_2" />
 
                         <TextView
-                    android:textColor="@color/white"
+                            android:textColor="@color/white"
                             android:id="@+id/medium_track_3"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/_3" />
 
                         <TextView
-                    android:textColor="@color/white"
+                            android:textColor="@color/white"
                             android:id="@+id/medium_track_4"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/_4" />
 
                         <TextView
-                    android:textColor="@color/white"
+                            android:textColor="@color/white"
                             android:id="@+id/medium_track_5"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -378,41 +328,41 @@
                         android:orientation="vertical">
 
                         <TextView
-                    android:textColor="@color/white"
+                            android:textColor="@color/white"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/top_artists" />
 
                         <TextView
-                    android:textColor="@color/white"
+                            android:textColor="@color/white"
                             android:id="@+id/medium_artist_1"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/_1" />
 
                         <TextView
-                    android:textColor="@color/white"
+                            android:textColor="@color/white"
                             android:id="@+id/medium_artist_2"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/_2" />
 
                         <TextView
-                    android:textColor="@color/white"
+                            android:textColor="@color/white"
                             android:id="@+id/medium_artist_3"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/_3" />
 
                         <TextView
-                    android:textColor="@color/white"
+                            android:textColor="@color/white"
                             android:id="@+id/medium_artist_4"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/_4" />
 
                         <TextView
-                    android:textColor="@color/white"
+                            android:textColor="@color/white"
                             android:id="@+id/medium_artist_5"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -421,68 +371,6 @@
 
                 </LinearLayout>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:orientation="horizontal">
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-
-                        <TextView
-                    android:textColor="@color/white"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/top_playlists" />
-
-                        <TextView
-                    android:textColor="@color/white"
-                            android:id="@+id/medium_playlist_1"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/_1" />
-
-                        <TextView
-                    android:textColor="@color/white"
-                            android:id="@+id/medium_playlist_2"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/_2" />
-
-                        <TextView
-                    android:textColor="@color/white"
-                            android:id="@+id/medium_playlist_3"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/_3" />
-
-                        <TextView
-                    android:textColor="@color/white"
-                            android:id="@+id/medium_playlist_4"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/_4" />
-
-                        <TextView
-                    android:textColor="@color/white"
-                            android:id="@+id/medium_playlist_5"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/_5" />
-                    </LinearLayout>
-
-                    <ImageView
-                        android:id="@+id/medium_playlist_img"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:src="@drawable/temp" />
-
-                </LinearLayout>
 
                 <TextView
                     android:textColor="@color/white"
@@ -527,7 +415,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
-                    android:text="@string/date"
+                    android:text="Fantastic Year"
                     android:textSize="50sp" />
 
                 <TextView
@@ -561,41 +449,41 @@
                         android:orientation="vertical">
 
                         <TextView
-                    android:textColor="@color/white"
+                            android:textColor="@color/white"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/top_tracks" />
 
                         <TextView
-                    android:textColor="@color/white"
+                            android:textColor="@color/white"
                             android:id="@+id/long_track_1"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/_1" />
 
                         <TextView
-                    android:textColor="@color/white"
+                            android:textColor="@color/white"
                             android:id="@+id/long_track_2"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/_2" />
 
                         <TextView
-                    android:textColor="@color/white"
+                            android:textColor="@color/white"
                             android:id="@+id/long_track_3"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/_3" />
 
                         <TextView
-                    android:textColor="@color/white"
+                            android:textColor="@color/white"
                             android:id="@+id/long_track_4"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/_4" />
 
                         <TextView
-                    android:textColor="@color/white"
+                            android:textColor="@color/white"
                             android:id="@+id/long_track_5"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -631,41 +519,41 @@
                         android:orientation="vertical">
 
                         <TextView
-                    android:textColor="@color/white"
+                            android:textColor="@color/white"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/top_artists" />
 
                         <TextView
-                    android:textColor="@color/white"
+                            android:textColor="@color/white"
                             android:id="@+id/long_artist_1"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/_1" />
 
                         <TextView
-                    android:textColor="@color/white"
+                            android:textColor="@color/white"
                             android:id="@+id/long_artist_2"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/_2" />
 
                         <TextView
-                    android:textColor="@color/white"
+                            android:textColor="@color/white"
                             android:id="@+id/long_artist_3"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/_3" />
 
                         <TextView
-                    android:textColor="@color/white"
+                            android:textColor="@color/white"
                             android:id="@+id/long_artist_4"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/_4" />
 
                         <TextView
-                    android:textColor="@color/white"
+                            android:textColor="@color/white"
                             android:id="@+id/long_artist_5"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -674,68 +562,7 @@
 
                 </LinearLayout>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:orientation="horizontal">
 
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-
-                        <TextView
-                    android:textColor="@color/white"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/top_playlists" />
-
-                        <TextView
-                    android:textColor="@color/white"
-                            android:id="@+id/long_playlist_1"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/_1" />
-
-                        <TextView
-                    android:textColor="@color/white"
-                            android:id="@+id/long_playlist_2"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/_2" />
-
-                        <TextView
-                    android:textColor="@color/white"
-                            android:id="@+id/long_playlist_3"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/_3" />
-
-                        <TextView
-                    android:textColor="@color/white"
-                            android:id="@+id/long_playlist_4"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/_4" />
-
-                        <TextView
-                    android:textColor="@color/white"
-                            android:id="@+id/long_playlist_5"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/_5" />
-                    </LinearLayout>
-
-                    <ImageView
-                        android:id="@+id/long_playlist_img"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:src="@drawable/temp" />
-
-                </LinearLayout>
 
                 <TextView
                     android:textColor="@color/white"
@@ -782,6 +609,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:contentDescription="right arrow" />
+
+    <Button
+        android:id="@+id/backButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Back"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="5dp"
+        android:layout_marginStart="5dp"
+
+        />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
