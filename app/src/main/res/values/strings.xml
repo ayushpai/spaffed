@@ -32,6 +32,6 @@
     <string name="_5">5</string>
     <string name="top_artists">Top Artists</string>
     <string name="top_playlists">Top Playlists</string>
-    <string name="top_genre_text">Interesting...\nListening to a lot of {top_genre}\nI can tell.</string>
+    <string name="top_genre_text">Generating Spaffed AI Analysis...</string>
 
 </resources>

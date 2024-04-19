@@ -1,11 +1,13 @@
 package com.example.spaffed;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -51,6 +53,8 @@ public class HomeActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
+
+
         generateWrapped = findViewById(R.id.wrapped_button);
         generateWrapped.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,9 +70,80 @@ public class HomeActivity extends AppCompatActivity {
 
         // Use the current timestamp as the document name
         String timestamp = String.valueOf(System.currentTimeMillis());
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
 
-        generateSpotifyWrappedForTimeRange("short_term", mAccessToken, timestamp);
-        generateSpotifyWrappedForTimeRange("long_term", mAccessToken, timestamp);
+        // Open dialog box that asks the user if they want this wrapped to be public or not with yes or no buttons
+        // Create an AlertDialog.Builder instance
+        AlertDialog.Builder builder = new AlertDialog.Builder(HomeActivity.this);
+
+        // Set the message and the title of the dialog
+        builder.setMessage("Do you want this wrapped to be public?")
+                .setTitle("Public Confirmation");
+
+
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                Map<String, Object> data = new HashMap<>();
+                data.put("timestamp", timestamp);
+                data.put("public", true);
+                db.collection("users").document(mAccessToken).collection("spotifyData").document(timestamp)
+                        .set(data)
+                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void aVoid) {
+                                Log.d("Firestore", "DocumentSnapshot successfully written!");
+                            }
+                        })
+                        .addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                Log.w("Firestore", "Error writing document", e);
+                            }
+                        });
+
+
+
+                generateSpotifyWrappedForTimeRange("short_term", mAccessToken, timestamp);
+                generateSpotifyWrappedForTimeRange("medium_term", mAccessToken, timestamp);
+                generateSpotifyWrappedForTimeRange("long_term", mAccessToken, timestamp);
+            }
+        });
+
+        // Add the No button
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                Map<String, Object> data = new HashMap<>();
+                data.put("timestamp", timestamp);
+                data.put("public", false);
+                db.collection("users").document(mAccessToken).collection("spotifyData").document(timestamp)
+                        .set(data)
+                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void aVoid) {
+                                Log.d("Firestore", "DocumentSnapshot successfully written!");
+                            }
+                        })
+                        .addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                Log.w("Firestore", "Error writing document", e);
+                            }
+                        });
+
+
+
+                generateSpotifyWrappedForTimeRange("short_term", mAccessToken, timestamp);
+                generateSpotifyWrappedForTimeRange("medium_term", mAccessToken, timestamp);
+                generateSpotifyWrappedForTimeRange("long_term", mAccessToken, timestamp);
+            }
+        });
+        // Create and show the AlertDialog
+        AlertDialog dialog = builder.create();
+        dialog.show();
+
+
+
+
 
     }
 
@@ -128,7 +203,7 @@ public class HomeActivity extends AppCompatActivity {
                     FirebaseFirestore db = FirebaseFirestore.getInstance();
                     Map<String, Object> data = new HashMap<>();
                     data.put("topArtists", topArtists);
-                    data.put("topArtistImageUrl", topArtistImageUrl);
+                    data.put("topImageUrl", topArtistImageUrl);
 
                     Log.d("Firestore", "Writing data to Firestore: " + data);
 
@@ -194,7 +269,7 @@ public class HomeActivity extends AppCompatActivity {
                     FirebaseFirestore db = FirebaseFirestore.getInstance();
                     Map<String, Object> data = new HashMap<>();
                     data.put("topTracks", topTracks);
-                    data.put("topTrackImageUrl", topTrackImageUrl);
+                    data.put("topImageUrl", topTrackImageUrl);
 
                     Log.d("Firestore", "Writing data to Firestore: " + data);
 
@@ -206,6 +281,19 @@ public class HomeActivity extends AppCompatActivity {
                                 @Override
                                 public void onSuccess(Void aVoid) {
                                     Log.d("Firestore", "DocumentSnapshot successfully written!");
+                                    // open the wrapper activity
+
+                                    if (timeRange.equals("long_term")) {
+                                        // open the wrapper activity
+                                        Intent intent = new Intent(HomeActivity.this, WrapperActivity.class);
+                                        startActivity(intent);
+                                    }
+
+                                    // save the timestamp to shared preferences
+                                    SharedPreferences sharedPreferences = getSharedPreferences("SpotifyAuth", MODE_PRIVATE);
+                                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                                    editor.putString("timestamp", timestamp);
+                                    editor.apply();
                                 }
                             })
                             .addOnFailureListener(new OnFailureListener() {
@@ -220,5 +308,6 @@ public class HomeActivity extends AppCompatActivity {
                 }
             }
         });
+
     }
 }
