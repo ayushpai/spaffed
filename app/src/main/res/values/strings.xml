@@ -36,5 +36,8 @@
     <string name="top_playlists">Top Playlists</string>
     <string name="top_genre_text">Interesting...\nListening to a lot of {top_genre}\nI can tell.</string>
     <string name="dd_mm_yy">DD/MM/YY</string>
+    <string name="username">user214</string>
+    <string name="public_wraps_title">Public Wraps</string>
+    <string name="community_subtitle">What the community is listening to</string>
 
 </resources>

@@ -38,7 +38,7 @@
                     android:textSize="30sp" />
 
                 <TextView
-                    android:id="@+id/week_date_text"
+                    android:id="@+id/short_date_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
@@ -54,7 +54,7 @@
                     android:textSize="30sp" />
 
                 <TextView
-                    android:id="@+id/week_your_music_text"
+                    android:id="@+id/short_your_music_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
@@ -79,38 +79,38 @@
                             android:text="@string/top_tracks" />
 
                         <TextView
-                            android:id="@+id/week_track_1"
+                            android:id="@+id/short_track_1"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/_1" />
 
                         <TextView
-                            android:id="@+id/week_track_2"
+                            android:id="@+id/short_track_2"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/_2" />
 
                         <TextView
-                            android:id="@+id/week_track_3"
+                            android:id="@+id/short_track_3"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/_3" />
 
                         <TextView
-                            android:id="@+id/week_track_4"
+                            android:id="@+id/short_track_4"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/_4" />
 
                         <TextView
-                            android:id="@+id/week_track_5"
+                            android:id="@+id/short_track_5"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/_5" />
                     </LinearLayout>
 
                     <ImageView
-                        android:id="@+id/week_track_img"
+                        android:id="@+id/short_track_img"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
@@ -125,7 +125,7 @@
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:id="@+id/week_artist_img"
+                        android:id="@+id/short_artist_img"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
@@ -143,31 +143,31 @@
                             android:text="@string/top_artists" />
 
                         <TextView
-                            android:id="@+id/week_artist_1"
+                            android:id="@+id/short_artist_1"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/_1" />
 
                         <TextView
-                            android:id="@+id/week_artist_2"
+                            android:id="@+id/short_artist_2"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/_2" />
 
                         <TextView
-                            android:id="@+id/week_artist_3"
+                            android:id="@+id/short_artist_3"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/_3" />
 
                         <TextView
-                            android:id="@+id/week_artist_4"
+                            android:id="@+id/short_artist_4"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/_4" />
 
                         <TextView
-                            android:id="@+id/week_artist_5"
+                            android:id="@+id/short_artist_5"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/_5" />
@@ -193,38 +193,38 @@
                             android:text="@string/top_playlists" />
 
                         <TextView
-                            android:id="@+id/week_playlist_1"
+                            android:id="@+id/short_playlist_1"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/_1" />
 
                         <TextView
-                            android:id="@+id/week_playlist_2"
+                            android:id="@+id/short_playlist_2"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/_2" />
 
                         <TextView
-                            android:id="@+id/week_playlist_3"
+                            android:id="@+id/short_playlist_3"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/_3" />
 
                         <TextView
-                            android:id="@+id/week_playlist_4"
+                            android:id="@+id/short_playlist_4"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/_4" />
 
                         <TextView
-                            android:id="@+id/week_playlist_5"
+                            android:id="@+id/short_playlist_5"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/_5" />
                     </LinearLayout>
 
                     <ImageView
-                        android:id="@+id/week_playlist_img"
+                        android:id="@+id/short_playlist_img"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
@@ -233,7 +233,7 @@
                 </LinearLayout>
 
                 <TextView
-                    android:id="@+id/week_top_genre_text"
+                    android:id="@+id/short_top_genre_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="25dp"
@@ -270,7 +270,7 @@
 
                 <TextView
                     android:textColor="@color/white"
-                    android:id="@+id/month_date_text"
+                    android:id="@+id/medium_date_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
@@ -288,7 +288,7 @@
 
                 <TextView
                     android:textColor="@color/white"
-                    android:id="@+id/month_your_music_text"
+                    android:id="@+id/medium_your_music_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
@@ -315,42 +315,42 @@
 
                         <TextView
                     android:textColor="@color/white"
-                            android:id="@+id/month_track_1"
+                            android:id="@+id/medium_track_1"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/_1" />
 
                         <TextView
                     android:textColor="@color/white"
-                            android:id="@+id/month_track_2"
+                            android:id="@+id/medium_track_2"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/_2" />
 
                         <TextView
                     android:textColor="@color/white"
-                            android:id="@+id/month_track_3"
+                            android:id="@+id/medium_track_3"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/_3" />
 
                         <TextView
                     android:textColor="@color/white"
-                            android:id="@+id/month_track_4"
+                            android:id="@+id/medium_track_4"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/_4" />
 
                         <TextView
                     android:textColor="@color/white"
-                            android:id="@+id/month_track_5"
+                            android:id="@+id/medium_track_5"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/_5" />
                     </LinearLayout>
 
                     <ImageView
-                        android:id="@+id/month_track_img"
+                        android:id="@+id/medium_track_img"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
@@ -365,7 +365,7 @@
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:id="@+id/month_artist_img"
+                        android:id="@+id/medium_artist_img"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
@@ -385,35 +385,35 @@
 
                         <TextView
                     android:textColor="@color/white"
-                            android:id="@+id/month_artist_1"
+                            android:id="@+id/medium_artist_1"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/_1" />
 
                         <TextView
                     android:textColor="@color/white"
-                            android:id="@+id/month_artist_2"
+                            android:id="@+id/medium_artist_2"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/_2" />
 
                         <TextView
                     android:textColor="@color/white"
-                            android:id="@+id/month_artist_3"
+                            android:id="@+id/medium_artist_3"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/_3" />
 
                         <TextView
                     android:textColor="@color/white"
-                            android:id="@+id/month_artist_4"
+                            android:id="@+id/medium_artist_4"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/_4" />
 
                         <TextView
                     android:textColor="@color/white"
-                            android:id="@+id/month_artist_5"
+                            android:id="@+id/medium_artist_5"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/_5" />
@@ -441,42 +441,42 @@
 
                         <TextView
                     android:textColor="@color/white"
-                            android:id="@+id/month_playlist_1"
+                            android:id="@+id/medium_playlist_1"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/_1" />
 
                         <TextView
                     android:textColor="@color/white"
-                            android:id="@+id/month_playlist_2"
+                            android:id="@+id/medium_playlist_2"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/_2" />
 
                         <TextView
                     android:textColor="@color/white"
-                            android:id="@+id/month_playlist_3"
+                            android:id="@+id/medium_playlist_3"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/_3" />
 
                         <TextView
                     android:textColor="@color/white"
-                            android:id="@+id/month_playlist_4"
+                            android:id="@+id/medium_playlist_4"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/_4" />
 
                         <TextView
                     android:textColor="@color/white"
-                            android:id="@+id/month_playlist_5"
+                            android:id="@+id/medium_playlist_5"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/_5" />
                     </LinearLayout>
 
                     <ImageView
-                        android:id="@+id/month_playlist_img"
+                        android:id="@+id/medium_playlist_img"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
@@ -486,7 +486,7 @@
 
                 <TextView
                     android:textColor="@color/white"
-                    android:id="@+id/month_top_genre_text"
+                    android:id="@+id/medium_top_genre_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="25dp"
@@ -523,7 +523,7 @@
 
                 <TextView
                     android:textColor="@color/white"
-                    android:id="@+id/year_date_text"
+                    android:id="@+id/long_date_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
@@ -541,7 +541,7 @@
 
                 <TextView
                     android:textColor="@color/white"
-                    android:id="@+id/year_your_music_text"
+                    android:id="@+id/long_your_music_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
@@ -568,42 +568,42 @@
 
                         <TextView
                     android:textColor="@color/white"
-                            android:id="@+id/year_track_1"
+                            android:id="@+id/long_track_1"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/_1" />
 
                         <TextView
                     android:textColor="@color/white"
-                            android:id="@+id/year_track_2"
+                            android:id="@+id/long_track_2"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/_2" />
 
                         <TextView
                     android:textColor="@color/white"
-                            android:id="@+id/year_track_3"
+                            android:id="@+id/long_track_3"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/_3" />
 
                         <TextView
                     android:textColor="@color/white"
-                            android:id="@+id/year_track_4"
+                            android:id="@+id/long_track_4"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/_4" />
 
                         <TextView
                     android:textColor="@color/white"
-                            android:id="@+id/year_track_5"
+                            android:id="@+id/long_track_5"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/_5" />
                     </LinearLayout>
 
                     <ImageView
-                        android:id="@+id/year_track_img"
+                        android:id="@+id/long_track_img"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
@@ -618,7 +618,7 @@
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:id="@+id/year_artist_img"
+                        android:id="@+id/long_artist_img"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
@@ -638,35 +638,35 @@
 
                         <TextView
                     android:textColor="@color/white"
-                            android:id="@+id/year_artist_1"
+                            android:id="@+id/long_artist_1"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/_1" />
 
                         <TextView
                     android:textColor="@color/white"
-                            android:id="@+id/year_artist_2"
+                            android:id="@+id/long_artist_2"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/_2" />
 
                         <TextView
                     android:textColor="@color/white"
-                            android:id="@+id/year_artist_3"
+                            android:id="@+id/long_artist_3"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/_3" />
 
                         <TextView
                     android:textColor="@color/white"
-                            android:id="@+id/year_artist_4"
+                            android:id="@+id/long_artist_4"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/_4" />
 
                         <TextView
                     android:textColor="@color/white"
-                            android:id="@+id/year_artist_5"
+                            android:id="@+id/long_artist_5"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/_5" />
@@ -694,42 +694,42 @@
 
                         <TextView
                     android:textColor="@color/white"
-                            android:id="@+id/year_playlist_1"
+                            android:id="@+id/long_playlist_1"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/_1" />
 
                         <TextView
                     android:textColor="@color/white"
-                            android:id="@+id/year_playlist_2"
+                            android:id="@+id/long_playlist_2"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/_2" />
 
                         <TextView
                     android:textColor="@color/white"
-                            android:id="@+id/year_playlist_3"
+                            android:id="@+id/long_playlist_3"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/_3" />
 
                         <TextView
                     android:textColor="@color/white"
-                            android:id="@+id/year_playlist_4"
+                            android:id="@+id/long_playlist_4"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/_4" />
 
                         <TextView
                     android:textColor="@color/white"
-                            android:id="@+id/year_playlist_5"
+                            android:id="@+id/long_playlist_5"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/_5" />
                     </LinearLayout>
 
                     <ImageView
-                        android:id="@+id/year_playlist_img"
+                        android:id="@+id/long_playlist_img"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
@@ -739,7 +739,7 @@
 
                 <TextView
                     android:textColor="@color/white"
-                    android:id="@+id/year_top_genre_text"
+                    android:id="@+id/long_top_genre_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="25dp"

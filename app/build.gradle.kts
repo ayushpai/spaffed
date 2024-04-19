@@ -59,5 +59,7 @@ dependencies {
     // below line is used for volley library
     implementation("com.android.volley:volley:1.2.0")
 
+    implementation("com.squareup.picasso:picasso:2.71828")
+
 
 }
