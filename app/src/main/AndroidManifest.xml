@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+    <!-- permissions for INTERNET -->
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -13,25 +15,31 @@
         android:theme="@style/Theme.Spaffed"
         tools:targetApi="31">
         <activity
+            android:name=".PublicWrappers"
+            android:exported="false" />
+        <activity
             android:name=".DeleteAccount"
             android:exported="false" />
         <activity
             android:name=".WrappedLoadingActivity"
             android:exported="false" />
         <activity
-            android:name=".WrapperActivity"
+            android:name=".HomeActivity"
             android:exported="true" />
         <activity
             android:name=".SpotifyLoginActivity"
             android:exported="false" />
         <activity
-            android:name=".HomeActivity"
+            android:name=".PastWrappersActivity"
             android:exported="false" />
         <activity
             android:name=".SignupActivity"
             android:exported="false" />
         <activity
             android:name=".LoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".WrapperActivity"
             android:exported="false" />
         <activity
             android:name=".EditProfileActivity"
