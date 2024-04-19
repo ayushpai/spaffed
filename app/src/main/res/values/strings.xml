@@ -16,6 +16,8 @@
 
     <string name="loading">Loading</string>
 
+    <string name="past_wraps_title">Past Wraps</string>
+    <string name="past_wraps_subtitle">A walk through history</string>
 
     <string name="font_primary">Helvetica</string>
 
@@ -33,5 +35,6 @@
     <string name="top_artists">Top Artists</string>
     <string name="top_playlists">Top Playlists</string>
     <string name="top_genre_text">Interesting...\nListening to a lot of {top_genre}\nI can tell.</string>
+    <string name="dd_mm_yy">DD/MM/YY</string>
 
 </resources>
