@@ -30,7 +30,7 @@
             android:name=".SpotifyLoginActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".PastWrappersActivity"
             android:exported="false" />
         <activity
             android:name=".SignupActivity"
@@ -45,16 +45,10 @@
             android:name=".EditProfileActivity"
             android:exported="false" />
         <activity
-            android:name=".PastWrappersActivity"
+            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
             <intent-filter>
