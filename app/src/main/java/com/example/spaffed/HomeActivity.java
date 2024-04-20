@@ -316,7 +316,11 @@ public class HomeActivity extends AppCompatActivity {
                                     SharedPreferences sharedPreferences = getSharedPreferences("SpotifyAuth", MODE_PRIVATE);
                                     SharedPreferences.Editor editor = sharedPreferences.edit();
                                     editor.putString("timestamp", timestamp);
+                                    editor.putString("wrapper_user_id", mAccessToken);
                                     editor.apply();
+
+
+
                                 }
                             })
                             .addOnFailureListener(new OnFailureListener() {
