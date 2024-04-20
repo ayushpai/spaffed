@@ -3,6 +3,8 @@ package com.example.spaffed;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
+
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -34,8 +36,8 @@ import okhttp3.Response;
 
 public class HomeActivity extends AppCompatActivity {
 
-    Button editProfilePage;
-    Button generateWrapped, pastWrapped, publicWrapped;
+    CardView editProfilePage;
+    CardView generateWrapped, pastWrapped, publicWrapped;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +48,7 @@ public class HomeActivity extends AppCompatActivity {
         SharedPreferences sharedPreferences = getSharedPreferences("SpotifyAuth", MODE_PRIVATE);
         String mAccessToken = sharedPreferences.getString("mAccessToken", null);
 
-        editProfilePage = findViewById(R.id.edit_account);
+        editProfilePage = findViewById(R.id.edit_account_card);
         editProfilePage.setOnClickListener(v -> {
             // Redirect to EditProfileActivity
             Intent intent = new Intent(HomeActivity.this, EditProfileActivity.class);
@@ -55,7 +57,7 @@ public class HomeActivity extends AppCompatActivity {
 
 
 
-        generateWrapped = findViewById(R.id.wrapped_button);
+        generateWrapped = findViewById(R.id.wrapped_card);
         generateWrapped.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -63,7 +65,7 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
-        pastWrapped = findViewById(R.id.past_wrapped_button);
+        pastWrapped = findViewById(R.id.past_wrapped_card);
         pastWrapped.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -73,7 +75,7 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
-        publicWrapped = findViewById(R.id.public_wrapped_button);
+        publicWrapped = findViewById(R.id.public_wrapped_card);
 
         publicWrapped.setOnClickListener(new View.OnClickListener() {
             @Override

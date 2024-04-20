@@ -185,7 +185,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="2"
                     android:gravity="center"
-                    android:text="Edit Account"
+                    android:text="Account Settings"
                     android:textColor="@color/black"
                     android:textSize="20sp" />
 
