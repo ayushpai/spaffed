@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- rectangle_with_circle.xml -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- White rectangle -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@color/accent_dark" />
+        </shape>
+    </item>
+    <!-- Accent dark circle in the middle -->
+    <item android:gravity="center">
+        <shape android:shape="oval">
+            <solid android:color="@color/accent_dark_2" />
+            <size android:width="570dp" android:height="570dp" />
+        </shape>
+    </item>
+    <item android:gravity="center">
+        <shape android:shape="oval">
+            <solid android:color="@color/accent_dark_3" />
+            <size android:width="500dp" android:height="500dp" />
+        </shape>
+    </item>
+</layer-list>

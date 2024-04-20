@@ -21,7 +21,7 @@
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/accent_light">
+            android:background="@drawable/circle_background_3">
 
 
 
@@ -198,7 +198,7 @@
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/accent_dark">
+            android:background="@drawable/circle_background_1">
 
             <LinearLayout
                 xmlns:android="http://schemas.android.com/apk/res/android"
@@ -389,7 +389,7 @@
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/primary">
+            android:background="@drawable/circle_background_2">
 
             <LinearLayout
                 xmlns:android="http://schemas.android.com/apk/res/android"
