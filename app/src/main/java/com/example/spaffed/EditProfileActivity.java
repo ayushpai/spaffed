@@ -16,6 +16,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.spotify.sdk.android.auth.AuthorizationClient;
 import com.spotify.sdk.android.auth.AuthorizationRequest;
 import com.spotify.sdk.android.auth.AuthorizationResponse;
@@ -25,7 +26,10 @@ public class EditProfileActivity extends AppCompatActivity {
     EditText editEmail;
     EditText editPassword;
 
-    Button deleteAccountPage, confirmChanges;
+
+    EditText newPassword;
+
+    Button deleteAccountPage, confirmChanges, logoutButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,14 +37,54 @@ public class EditProfileActivity extends AppCompatActivity {
 
         editEmail = findViewById(R.id.email);
         editPassword = findViewById(R.id.password);
+        newPassword = findViewById(R.id.newPassword);
 
         deleteAccountPage = findViewById(R.id.deleteAccountButton);
         confirmChanges = findViewById(R.id.confirmChangesButton);
+        logoutButton = findViewById(R.id.logoutButton);
 
-        deleteAccountPage.setOnClickListener(v -> {
-            // Redirect to DeleteAccount
-            Intent intent = new Intent(EditProfileActivity.this, DeleteAccount.class);
+        deleteAccountPage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Retrieve userId and mAccessToken from SharedPreferences
+                SharedPreferences sharedPreferences = getSharedPreferences("SpotifyAuth", MODE_PRIVATE);
+                String userId = sharedPreferences.getString("userId", null);
+                String mAccessToken = sharedPreferences.getString("mAccessToken", null);
+
+                FirebaseAuth mAuth = FirebaseAuth.getInstance();
+                FirebaseFirestore db = FirebaseFirestore.getInstance();
+
+                if (userId != null && mAccessToken != null) {
+                    // Delete user account
+                    mAuth.getCurrentUser().delete();
+
+                    // Delete document in Firestore
+                    db.collection("users").document(mAccessToken).delete();
+
+                    // Clear userId and mAccessToken from SharedPreferences
+                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                    editor.remove("userId");
+                    editor.remove("mAccessToken");
+                    editor.apply();
+
+                    // Redirect to MainActivity
+                    Intent intent = new Intent(EditProfileActivity.this, MainActivity.class);
+                    startActivity(intent);
+                }
+            }
+        });
+
+        logoutButton.setOnClickListener(v -> {
+
+            FirebaseAuth.getInstance().signOut();
+            SharedPreferences sharedPreferences = getSharedPreferences("SpotifyAuth", MODE_PRIVATE);
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.remove("userId");
+            editor.apply();
+            Intent intent = new Intent(EditProfileActivity.this, MainActivity.class);
             startActivity(intent);
+
+
         });
 
 
@@ -49,49 +93,45 @@ public class EditProfileActivity extends AppCompatActivity {
         confirmChanges.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // if email is not empty
-                if (!editEmail.getText().toString().isEmpty()) {
-                    user.updateEmail(editEmail.getText().toString())
-                            .addOnCompleteListener(new OnCompleteListener<Void>() {
-                                @Override
-                                public void onComplete(@NonNull Task<Void> task) {
-                                    if (task.isSuccessful()) {
-                                        Log.d("Updated Email", "User email address updated.");
-                                    }
-                                    else {
+                // First reauthenticate the user based on the current email and password
+                String email = editEmail.getText().toString();
+                String password = editPassword.getText().toString();
+                String newPasswordString = newPassword.getText().toString();
 
-                                        //get error message
-                                        String error = task.getException().getMessage();
-                                        Log.d("EMAIL ERROR", error);
-                                        // invalid email - give a toast
-                                        Toast.makeText(EditProfileActivity.this, "Invalid email", Toast.LENGTH_SHORT).show();
-                                    }
-                                }
-                            });
+                if (email.isEmpty() || password.isEmpty()) {
+                    Toast.makeText(EditProfileActivity.this, "Please enter your current credentials", Toast.LENGTH_SHORT).show();
+                    return;
                 }
 
-                // if password is not empty
-                if (!editPassword.getText().toString().isEmpty()) {
-                    user.updatePassword(editPassword.getText().toString())
-                            .addOnCompleteListener(new OnCompleteListener<Void>() {
-                                @Override
-                                public void onComplete(@NonNull Task<Void> task) {
-                                    if (task.isSuccessful()) {
-
-                                        Log.d("Updated Password", "User password updated.");
-                                        // toast
-
-                                    }
-                                    else {
-                                        // invalid password - give a toast
-                                        Toast.makeText(EditProfileActivity.this, "Invalid password", Toast.LENGTH_SHORT).show();
-                                        // write to log
-                                        String error = task.getException().getMessage();
-                                        Log.d("PASSWORD ERROR", error);
-                                    }
-                                }
-                            });
+                if (newPasswordString.isEmpty()) {
+                    Toast.makeText(EditProfileActivity.this, "Please enter a new password", Toast.LENGTH_SHORT).show();
+                    return;
                 }
+
+
+                user.reauthenticate(com.google.firebase.auth.EmailAuthProvider.getCredential(email, password))
+                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                // If reauthentication is successful, update the password
+                                if (task.isSuccessful()) {
+                                    user.updatePassword(newPasswordString).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<Void> task) {
+                                            if (task.isSuccessful()) {
+                                                Toast.makeText(EditProfileActivity.this, "Password updated", Toast.LENGTH_SHORT).show();
+                                            } else {
+                                                Toast.makeText(EditProfileActivity.this, "Password update failed", Toast.LENGTH_SHORT).show();
+                                            }
+                                        }
+                                    });
+
+                                } else {
+                                    Toast.makeText(EditProfileActivity.this, "Reauthentication failed", Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                        });
+
 
             }
         });
