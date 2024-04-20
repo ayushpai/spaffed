@@ -4,12 +4,15 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.os.Environment;
 import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.ViewFlipper;
 
@@ -29,9 +32,15 @@ import com.squareup.picasso.Picasso;
 
 import org.json.JSONObject;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.OutputStream;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
 public class WrapperActivity extends AppCompatActivity {
 
@@ -49,6 +58,8 @@ public class WrapperActivity extends AppCompatActivity {
     TextView mediumArtist1, mediumArtist2, mediumArtist3, mediumArtist4, mediumArtist5;
     TextView longArtist1, longArtist2, longArtist3, longArtist4, longArtist5;
     ImageView shortArtistImg, mediumArtistImg, longArtistImg;
+
+    LinearLayout shortTermLayout, mediumTermLayout, longTermLayout;
 
     Button backButton;
 
@@ -118,6 +129,11 @@ public class WrapperActivity extends AppCompatActivity {
         mediumLLMText = findViewById(R.id.medium_top_genre_text);
         longLLMText = findViewById(R.id.long_top_genre_text);
 
+        shortTermLayout = findViewById(R.id.short_term_view);
+        mediumTermLayout = findViewById(R.id.medium_term_view);
+        longTermLayout = findViewById(R.id.long_term_view);
+
+
 
         // waits 5 second before running the method
         Handler handler = new Handler();
@@ -130,8 +146,13 @@ public class WrapperActivity extends AppCompatActivity {
                 updateTextWithLLM(shortTermPrompt, "short-term");
                 updateTextWithLLM(mediumTermPrompt, "medium-term");
                 updateTextWithLLM(longTermPrompt, "long-term");
+
+                //saveView(shortTermLayout);
+                //saveView(mediumTermLayout);
+                saveView(longTermLayout);
+
             }
-        }, 1000);   //5 seconds
+        }, 4000);   //5 seconds
 
 
 
@@ -368,4 +389,62 @@ public class WrapperActivity extends AppCompatActivity {
 
         queue.add(postRequest);
     }
+
+    private void saveView(View v){
+        File mediaStorageDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
+        if(mediaStorageDir.exists()){
+            Random r = new Random();
+            int num = r.nextInt(1000000000);
+            String timeString = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+            String imageName = "IMG_" + num + ".png";
+            String selectedOutputPath = mediaStorageDir.getPath() + File.separator + imageName;
+
+            // based on the view switch the visibility of the text
+
+            if (v == shortTermLayout) {
+                shortLLMText.setVisibility(View.INVISIBLE);
+            } else if (v == mediumTermLayout) {
+                mediumLLMText.setVisibility(View.INVISIBLE);
+            } else {
+                longLLMText.setVisibility(View.INVISIBLE);
+            }
+
+            // set background color to white
+            v.setBackgroundColor(getResources().getColor(android.R.color.white));
+            // add margin of the view
+
+
+            v.setDrawingCacheEnabled(true);
+            v.buildDrawingCache();
+            Bitmap bm = Bitmap.createBitmap(v.getDrawingCache());
+            v.setDrawingCacheEnabled(false);
+
+            v.destroyDrawingCache();
+            OutputStream f = null;
+            try{
+                File file = new File(selectedOutputPath);
+                f = new FileOutputStream(file);
+                bm.compress(Bitmap.CompressFormat.JPEG, 100, f);
+                f.flush();
+                f.close();
+                System.out.println("Downloaded");
+
+            } catch(Exception e){
+                e.printStackTrace();
+            }
+            shortLLMText.setVisibility(View.VISIBLE);
+            mediumLLMText.setVisibility(View.VISIBLE);
+            longLLMText.setVisibility(View.VISIBLE);
+            // set it back to what it was
+            v.setBackgroundColor(getResources().getColor(android.R.color.transparent));
+            // remove the padding
+        }
+        listDir(mediaStorageDir);
+    }
+    private void listDir(File path){
+        for(File child: path.listFiles()){
+            System.err.println(child.toString());
+        }
+    }
+
 }

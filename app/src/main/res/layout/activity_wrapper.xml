@@ -26,13 +26,17 @@
 
 
             <LinearLayout
+
                 xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
                 android:orientation="vertical"
-                android:gravity="center">
+                android:gravity="center"
+                android:id="@+id/short_term_view"
+
+                >
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -207,6 +211,7 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
                 android:orientation="vertical"
+                android:id="@+id/medium_term_view"
                 android:gravity="center">
 
                 <TextView
@@ -398,6 +403,7 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
                 android:orientation="vertical"
+                android:id="@+id/long_term_view"
                 android:gravity="center">
 
                 <TextView
