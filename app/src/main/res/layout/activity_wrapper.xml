@@ -21,7 +21,7 @@
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/accent_light">
+            android:background="@drawable/circle_background_3">
 
 
 
@@ -39,6 +39,7 @@
                 >
 
                 <TextView
+                    android:textColor="@color/white"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="25dp"
@@ -47,6 +48,7 @@
                     android:textSize="30sp" />
 
                 <TextView
+                    android:textColor="@color/white"
                     android:id="@+id/short_date_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -55,6 +57,7 @@
                     android:textSize="50sp" />
 
                 <TextView
+                    android:textColor="@color/white"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
@@ -63,6 +66,7 @@
                     android:textSize="30sp" />
 
                 <TextView
+                    android:textColor="@color/white"
                     android:id="@+id/short_your_music_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -83,35 +87,41 @@
                         android:orientation="vertical">
 
                         <TextView
+                    android:textColor="@color/white"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/top_tracks" />
 
                         <TextView
+                    android:textColor="@color/white"
                             android:id="@+id/short_track_1"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/_1" />
 
                         <TextView
+                    android:textColor="@color/white"
                             android:id="@+id/short_track_2"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/_2" />
 
                         <TextView
+                    android:textColor="@color/white"
                             android:id="@+id/short_track_3"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/_3" />
 
                         <TextView
+                    android:textColor="@color/white"
                             android:id="@+id/short_track_4"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/_4" />
 
                         <TextView
+                    android:textColor="@color/white"
                             android:id="@+id/short_track_5"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -147,35 +157,41 @@
                         android:orientation="vertical">
 
                         <TextView
+                          android:textColor="@color/white"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/top_artists" />
 
                         <TextView
+                            android:textColor="@color/white"
                             android:id="@+id/short_artist_1"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/_1" />
 
                         <TextView
+                    android:textColor="@color/white"
                             android:id="@+id/short_artist_2"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/_2" />
 
                         <TextView
+                    android:textColor="@color/white"
                             android:id="@+id/short_artist_3"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/_3" />
 
                         <TextView
+                    android:textColor="@color/white"
                             android:id="@+id/short_artist_4"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/_4" />
 
                         <TextView
+                    android:textColor="@color/white"
                             android:id="@+id/short_artist_5"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -187,6 +203,7 @@
 
 
                 <TextView
+                    android:textColor="@color/white"
                     android:id="@+id/short_top_genre_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -202,7 +219,7 @@
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/accent_dark">
+            android:background="@drawable/circle_background_1">
 
             <LinearLayout
                 xmlns:android="http://schemas.android.com/apk/res/android"
@@ -394,7 +411,7 @@
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/primary">
+            android:background="@drawable/circle_background_2">
 
             <LinearLayout
                 xmlns:android="http://schemas.android.com/apk/res/android"

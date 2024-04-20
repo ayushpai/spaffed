@@ -2,7 +2,18 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
     <color name="primary">#A288E3</color>
+    <color name="primary_2">#7A5EC4</color>
+    <color name="primary_3">#544091</color>
+
     <color name="accent_dark">#38023B</color>
-    <color name="accent_light">#BBD5ED</color>
+    <color name="accent_dark_2">#45023B</color>
+    <color name="accent_dark_3">#51023B</color>
+
+    <color name="accent_light">#2D475A</color>#2D475A
+    <color name="accent_light_2">#5989B6</color>
+    <color name="accent_light_3">#8ABAE8</color>
+
+
 </resources>
