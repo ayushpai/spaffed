@@ -67,7 +67,7 @@ public class PastWrappersActivity extends AppCompatActivity {
 
         // get all of the data from users -> mAccessToken -> spotifyData (timestamps) and log it
         db.collection("users")
-                .document("BQAUo8aJTWmYzrdB-W25H7bRJ-1-BY1B40x5X2WQt1vhjcQaKZx_hGOb68Wc4PdbGrlxXSLJgFelBWs0lxijmfM0Pa-SSRP4Odz3FD1n4rR1DQLNBj9ROKP9g0qHPuG_bQkg9FWZNGG8o1srX3XeFtcKKOAe4PsxROUzFNgmWNuJGRU7_YCyXdiZB7AU6Q")
+                .document(mAccessToken)
                 .collection("spotifyData")
                 .get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
