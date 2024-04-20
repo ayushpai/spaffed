@@ -140,11 +140,14 @@ public class WrapperActivity extends AppCompatActivity {
 
 
         String timeStampId = sharedPreferences.getString("timestamp", null);
+        String wrapperUserId = sharedPreferences.getString("wrapper_user_id", null);
+        Log.d("Wrapper USER ID", wrapperUserId);
+        Log.d("Wrapper TIMESTAMP", timeStampId);
 
 
         // retrieve short term tracks from firestore
         // users -> mAccessToken -> spotifyData (timestamps) -> terms (medium_term) -> tracks -> topTracks, topTrackImageUrl
-        db.collection("users").document(mAccessToken).collection("spotifyData").document(timeStampId).collection("short_term").document("tracks").get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+        db.collection("users").document(wrapperUserId).collection("spotifyData").document(timeStampId).collection("short_term").document("tracks").get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                 if (task.isSuccessful()) {
@@ -166,7 +169,7 @@ public class WrapperActivity extends AppCompatActivity {
         });
 
         // retrieve short term artists from firestore
-        db.collection("users").document(mAccessToken).collection("spotifyData").document(timeStampId).collection("short_term").document("artists").get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+        db.collection("users").document(wrapperUserId).collection("spotifyData").document(timeStampId).collection("short_term").document("artists").get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                 if (task.isSuccessful()) {
@@ -188,7 +191,7 @@ public class WrapperActivity extends AppCompatActivity {
         });
 
         // retrieve medium term tracks from firestore
-        db.collection("users").document(mAccessToken).collection("spotifyData").document(timeStampId).collection("medium_term").document("tracks").get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+        db.collection("users").document(wrapperUserId).collection("spotifyData").document(timeStampId).collection("medium_term").document("tracks").get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                 if (task.isSuccessful()) {
@@ -209,7 +212,7 @@ public class WrapperActivity extends AppCompatActivity {
         });
 
         // retrieve medium term artists from firestore
-        db.collection("users").document(mAccessToken).collection("spotifyData").document(timeStampId).collection("medium_term").document("artists").get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+        db.collection("users").document(wrapperUserId).collection("spotifyData").document(timeStampId).collection("medium_term").document("artists").get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                 if (task.isSuccessful()) {
@@ -230,7 +233,7 @@ public class WrapperActivity extends AppCompatActivity {
         });
 
         // retrieve long term tracks from firestore
-        db.collection("users").document(mAccessToken).collection("spotifyData").document(timeStampId).collection("long_term").document("tracks").get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+        db.collection("users").document(wrapperUserId).collection("spotifyData").document(timeStampId).collection("long_term").document("tracks").get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                 if (task.isSuccessful()) {
@@ -250,8 +253,10 @@ public class WrapperActivity extends AppCompatActivity {
             }
         });
 
+
+
         // retrieve long term artists from firestore
-        db.collection("users").document(mAccessToken).collection("spotifyData").document(timeStampId).collection("long_term").document("artists").get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+        db.collection("users").document(wrapperUserId).collection("spotifyData").document(timeStampId).collection("long_term").document("artists").get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                 if (task.isSuccessful()) {

@@ -112,6 +112,7 @@ public class PublicWrappersActivity extends AppCompatActivity {
                                                             }
                                                         }
                                                         if (wrappedDocument != null) {
+                                                            firebaseIds[finalI] = Long.valueOf(wrappedDocument.getId());
                                                             String term = terms[random.nextInt(terms.length)];
                                                             String option = options[random.nextInt(options.length)];
                                                             wrappedDocument.getReference()
@@ -181,6 +182,7 @@ public class PublicWrappersActivity extends AppCompatActivity {
                     SharedPreferences sharedPreferences =  getSharedPreferences("SpotifyAuth",MODE_PRIVATE);
                     SharedPreferences.Editor editor = sharedPreferences.edit();
                     editor.putString("timestamp", String.valueOf(firebaseIds[finalI]));
+
                     editor.putString("wrapper_user_id", userIds[finalI]);
                     editor.apply();
                     Intent intent = new Intent(PublicWrappersActivity.this, WrapperActivity.class);

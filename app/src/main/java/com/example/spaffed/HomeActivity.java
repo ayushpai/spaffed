@@ -35,7 +35,7 @@ import okhttp3.Response;
 public class HomeActivity extends AppCompatActivity {
 
     Button editProfilePage;
-    Button generateWrapped, pastWrapped;
+    Button generateWrapped, pastWrapped, publicWrapped;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,6 +72,18 @@ public class HomeActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        publicWrapped = findViewById(R.id.public_wrapped_button);
+
+        publicWrapped.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Redirect to PublicWrappersActivity
+                Intent intent = new Intent(HomeActivity.this, PublicWrappersActivity.class);
+                startActivity(intent);
+            }
+        });
+
 
     }
 
