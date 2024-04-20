@@ -5,6 +5,7 @@ import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.Image;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.widget.ViewFlipper;
@@ -43,13 +44,14 @@ import java.util.Map;
 import java.util.Random;
 import java.text.SimpleDateFormat;
 
+import com.google.firebase.firestore.Query;
+
 public class PublicWrappersActivity extends AppCompatActivity {
 
     private FirebaseFirestore db;
     private String mAccessToken;
-
+    private String[] userIds = new String[8];
     private long[] firebaseIds = new long[8];
-    private int num_docs = 0;
     private int[] cardIds = {R.id.card_1, R.id.card_2, R.id.card_3, R.id.card_4, R.id.card_5, R.id.card_6, R.id.card_7, R.id.card_8};
     private int[] imageIds = {R.id.header_image_1, R.id.header_image_2, R.id.header_image_3, R.id.header_image_4, R.id.header_image_5, R.id.header_image_6, R.id.header_image_7, R.id.header_image_8};
     private int[] textIds =  {R.id.title_1, R.id.title_2, R.id.title_3, R.id.title_4, R.id.title_5, R.id.title_6, R.id.title_7, R.id.title_8};
@@ -68,8 +70,6 @@ public class PublicWrappersActivity extends AppCompatActivity {
 
         // get all of the data from users -> mAccessToken -> spotifyData (timestamps) and log it
         db.collection("users")
-                .document("BQAUo8aJTWmYzrdB-W25H7bRJ-1-BY1B40x5X2WQt1vhjcQaKZx_hGOb68Wc4PdbGrlxXSLJgFelBWs0lxijmfM0Pa-SSRP4Odz3FD1n4rR1DQLNBj9ROKP9g0qHPuG_bQkg9FWZNGG8o1srX3XeFtcKKOAe4PsxROUzFNgmWNuJGRU7_YCyXdiZB7AU6Q")
-                .collection("spotifyData")
                 .get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
@@ -77,11 +77,12 @@ public class PublicWrappersActivity extends AppCompatActivity {
                             QuerySnapshot queryDocumentSnapshots = task.getResult();
                             Log.d("FIREBASE QUERY DOC", "onComplete: " + task.getResult().size());
                             int i = 0;
-                            for (QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots) {
-                                if (!documentSnapshot.exists()) {
+                            // For each user
+                            for (QueryDocumentSnapshot userDocument : queryDocumentSnapshots) {
+                                if (!userDocument.exists()) {
                                     break;
                                 }
-                                firebaseIds[i] = Long.valueOf(documentSnapshot.getId());
+                                userIds[i] = userDocument.getId();
 
                                 String[] terms = {"short_term", "medium_term", "long_term"};
                                 String[] options = {"artists", "tracks"};
@@ -90,37 +91,68 @@ public class PublicWrappersActivity extends AppCompatActivity {
                                 String term = terms[random.nextInt(terms.length)];
                                 String option = options[random.nextInt(options.length)];
 
+                                Log.d("TAGGGG", "onComplete: " + userDocument.getReference().toString());
+
+                                // FETCH MOST RECENT WRAPPED FROM USER DOC
+                                // Inside the loop
                                 int finalI = i;
-                                documentSnapshot.getReference()
-                                        .collection(term)
-                                        .document(option)
-                                        .get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                                userDocument.getReference().collection("spotifyData")
+                                        .get()
+                                        .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                                             @Override
-                                            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                                            public void onComplete(@NonNull Task<QuerySnapshot> task) {
                                                 if (task.isSuccessful()) {
-                                                    DocumentSnapshot document = task.getResult();
-                                                    Map<String, Object> data = document.getData();
-                                                    assert data != null;
-                                                    String topArtistImageUrl = (String) data.get("topImageUrl");
-                                                    // Display image
-                                                    ImageView img = findViewById(imageIds[finalI]);
-                                                    Log.d("FINAL IMAGE", "onComplete: " + topArtistImageUrl);
-                                                    Picasso.get().load(topArtistImageUrl).into(img);
+                                                    Log.d("CHECK ME OUT", "onComplete: " + task.getResult().getDocuments().toString());
+                                                    if (task.getResult().getDocuments().size() > 0) {
+                                                        DocumentSnapshot wrappedDocument = null;
+                                                        for (DocumentSnapshot doc : task.getResult().getDocuments()) {
+                                                            if (doc.getBoolean("public") == true) {
+                                                                wrappedDocument = doc;
+                                                                break;
+                                                            }
+                                                        }
+                                                        if (wrappedDocument != null) {
+                                                            String term = terms[random.nextInt(terms.length)];
+                                                            String option = options[random.nextInt(options.length)];
+                                                            wrappedDocument.getReference()
+                                                                    .collection(term)
+                                                                    .document(option)
+                                                                    .get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                                                                        @Override
+                                                                        public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                                                                            if (task.isSuccessful()) {
+                                                                                DocumentSnapshot document = task.getResult();
+                                                                                Map<String, Object> data = document.getData();
+                                                                                assert data != null;
+                                                                                String topImageUrl = (String) data.get("topImageUrl");
+                                                                                // Display image
+                                                                                ImageView img = findViewById(imageIds[finalI]);
+                                                                                Log.d("FINAL IMAGE", "onComplete: " + topImageUrl);
+                                                                                Picasso.get().load(topImageUrl).into(img);
+                                                                            } else {
+                                                                                Log.d("fail", "UNSUCESS");
+                                                                            }
+                                                                        }
+                                                                    });
+                                                        } else {
+                                                            ImageView img = findViewById(imageIds[finalI]);
+                                                            TextView title = findViewById(textIds[finalI]);
+                                                            CardView card = findViewById(cardIds[finalI]);
+                                                            img.setVisibility(View.GONE);
+                                                            title.setVisibility(View.GONE);
+                                                            card.setVisibility(View.GONE);
+                                                        }
+                                                    }
                                                 } else {
-                                                    Log.d("fail", "UNSUCESS");
+                                                    Log.e("TAG", "Error getting artists document for user " + userDocument.getId(), task.getException());
                                                 }
                                             }
                                         });
 
                                 TextView title = findViewById(textIds[i]);
-                                long millis = Long.parseLong(documentSnapshot.getId());
-                                Date date = new Date(millis);
-                                SimpleDateFormat sdf = new SimpleDateFormat("MM-dd-yyyy\nhh:mm:ss a");
-                                String formattedDate = sdf.format(date);
-                                title.setText(formattedDate);
+                                title.setText(userDocument.getString("display_name"));
 
                                 i++;
-                                num_docs = i;
                                 if (i >= cardIds.length) {
                                     break; // Break the loop if we have initialized all cards
                                 }
@@ -149,6 +181,7 @@ public class PublicWrappersActivity extends AppCompatActivity {
                     SharedPreferences sharedPreferences =  getSharedPreferences("SpotifyAuth",MODE_PRIVATE);
                     SharedPreferences.Editor editor = sharedPreferences.edit();
                     editor.putString("timestamp", String.valueOf(firebaseIds[finalI]));
+                    editor.putString("wrapper_user_id", userIds[finalI]);
                     editor.apply();
                     Intent intent = new Intent(PublicWrappersActivity.this, WrapperActivity.class);
                     startActivity(intent);
