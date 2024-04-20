@@ -39,5 +39,6 @@
     <string name="username">user214</string>
     <string name="public_wraps_title">Public Wraps</string>
     <string name="community_subtitle">What the community is listening to</string>
+    <string name="generate_wrapped">Generate Wrapped🎵🎶</string>
 
 </resources>
