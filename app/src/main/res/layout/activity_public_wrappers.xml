@@ -60,6 +60,7 @@
                     android:id="@+id/card_1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    app:cardCornerRadius="12dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -93,6 +94,7 @@
                     android:id="@+id/card_2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    app:cardCornerRadius="12dp"
                     android:layout_marginStart="35dp" >
 
                     <LinearLayout
@@ -133,6 +135,7 @@
                     android:id="@+id/card_3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    app:cardCornerRadius="12dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -166,6 +169,7 @@
                     android:id="@+id/card_4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    app:cardCornerRadius="12dp"
                     android:layout_marginStart="35dp" >
 
                     <LinearLayout
@@ -206,6 +210,7 @@
                     android:id="@+id/card_5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    app:cardCornerRadius="12dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -239,6 +244,7 @@
                     android:id="@+id/card_6"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    app:cardCornerRadius="12dp"
                     android:layout_marginStart="35dp" >
 
                     <LinearLayout
@@ -280,6 +286,7 @@
                     android:id="@+id/card_7"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    app:cardCornerRadius="12dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -313,6 +320,7 @@
                     android:id="@+id/card_8"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    app:cardCornerRadius="12dp"
                     android:layout_marginStart="35dp" >
 
                     <LinearLayout
