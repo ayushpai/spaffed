@@ -143,6 +143,13 @@ public class PublicWrappersActivity extends AppCompatActivity {
                                                             title.setVisibility(View.GONE);
                                                             card.setVisibility(View.GONE);
                                                         }
+                                                    } else {
+                                                        ImageView img = findViewById(imageIds[finalI]);
+                                                        TextView title = findViewById(textIds[finalI]);
+                                                        CardView card = findViewById(cardIds[finalI]);
+                                                        img.setVisibility(View.GONE);
+                                                        title.setVisibility(View.GONE);
+                                                        card.setVisibility(View.GONE);
                                                     }
                                                 } else {
                                                     Log.e("TAG", "Error getting artists document for user " + userDocument.getId(), task.getException());
