@@ -35,7 +35,7 @@ import okhttp3.Response;
 public class HomeActivity extends AppCompatActivity {
 
     Button editProfilePage;
-    Button generateWrapped;
+    Button generateWrapped, pastWrapped;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +62,18 @@ public class HomeActivity extends AppCompatActivity {
                 generateSpotifyWrapped();
             }
         });
+
+        pastWrapped = findViewById(R.id.past_wrapped_button);
+        pastWrapped.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Redirect to PastWrappersActivity
+                Intent intent = new Intent(HomeActivity.this, PastWrappersActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
     }
 
     private void generateSpotifyWrapped() {

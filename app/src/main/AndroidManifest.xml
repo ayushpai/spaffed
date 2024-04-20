@@ -37,6 +37,14 @@
             android:name=".EditProfileActivity"
             android:exported="false" />
         <activity
+            android:name=".PastWrappersActivity"
+            android:exported="false"
+            />
+        <activity
+            android:name=".PublicWrappersActivity"
+            android:exported="false"
+            />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
