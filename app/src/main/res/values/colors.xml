@@ -11,9 +11,9 @@
     <color name="accent_dark_2">#45023B</color>
     <color name="accent_dark_3">#51023B</color>
 
-    <color name="accent_light">#2D475A</color>#2D475A
-    <color name="accent_light_2">#5989B6</color>
-    <color name="accent_light_3">#8ABAE8</color>
+    <color name="accent_light">#B35E5E</color>#2D475A
+    <color name="accent_light_2">#F60A0A</color>
+    <color name="accent_light_3">#8E0404</color>
 
 
 </resources>

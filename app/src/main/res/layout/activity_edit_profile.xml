@@ -17,7 +17,7 @@
         android:id="@+id/welcomeTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Welcome, John"
+        android:text="Settings"
         android:textColor="#FFFFFF"
         android:textSize="50sp"
         app:layout_constraintBottom_toTopOf="@+id/editProfileHeader"

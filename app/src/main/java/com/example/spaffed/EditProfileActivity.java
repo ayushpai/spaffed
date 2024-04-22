@@ -47,30 +47,20 @@ public class EditProfileActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // Retrieve userId and mAccessToken from SharedPreferences
+                FirebaseAuth.getInstance().getCurrentUser().delete();
                 SharedPreferences sharedPreferences = getSharedPreferences("SpotifyAuth", MODE_PRIVATE);
-                String userId = sharedPreferences.getString("userId", null);
-                String mAccessToken = sharedPreferences.getString("mAccessToken", null);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.remove("userId");
+                editor.apply();
 
-                FirebaseAuth mAuth = FirebaseAuth.getInstance();
+
                 FirebaseFirestore db = FirebaseFirestore.getInstance();
+                String mAccessToken = sharedPreferences.getString("mAccessToken", null);
+                db.collection("users").document(mAccessToken).delete();
 
-                if (userId != null && mAccessToken != null) {
-                    // Delete user account
-                    mAuth.getCurrentUser().delete();
+                Intent intent = new Intent(EditProfileActivity.this, LoginActivity.class);
+                startActivity(intent);
 
-                    // Delete document in Firestore
-                    db.collection("users").document(mAccessToken).delete();
-
-                    // Clear userId and mAccessToken from SharedPreferences
-                    SharedPreferences.Editor editor = sharedPreferences.edit();
-                    editor.remove("userId");
-                    editor.remove("mAccessToken");
-                    editor.apply();
-
-                    // Redirect to MainActivity
-                    Intent intent = new Intent(EditProfileActivity.this, MainActivity.class);
-                    startActivity(intent);
-                }
             }
         });
 

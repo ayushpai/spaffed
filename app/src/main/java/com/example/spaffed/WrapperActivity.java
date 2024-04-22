@@ -1,10 +1,12 @@
 package com.example.spaffed;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
+import android.graphics.Canvas;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
@@ -62,6 +64,8 @@ public class WrapperActivity extends AppCompatActivity {
     LinearLayout shortTermLayout, mediumTermLayout, longTermLayout;
 
     Button backButton;
+
+    ImageView exportButton;
 
     private String openai_api_url = "https://api.openai.com/v1/completions";
 
@@ -133,6 +137,8 @@ public class WrapperActivity extends AppCompatActivity {
         mediumTermLayout = findViewById(R.id.medium_term_view);
         longTermLayout = findViewById(R.id.long_term_view);
 
+        exportButton = findViewById(R.id.export);
+
 
 
         // waits 5 second before running the method
@@ -140,22 +146,39 @@ public class WrapperActivity extends AppCompatActivity {
         handler.postDelayed(new Runnable() {
             public void run() {
                 // get the text of short term tracks ranking and the short term artists ranking
-                String shortTermPrompt = "Based on the users top tracks and artists in the last week, write a fun response about their music taste." + "\nUser Top Tracks (in order): " + shortTrack1.getText().toString() + ", " + shortTrack2.getText().toString() + ", " + shortTrack3.getText().toString() + ", " + shortTrack4.getText().toString() + ", " + shortTrack5.getText().toString() + "\nUser Top Artists (in order): " + shortArtist1.getText().toString() + ", " + shortArtist2.getText().toString() + ", " + shortArtist3.getText().toString() + ", " + shortArtist4.getText().toString() + ", " + shortArtist5.getText().toString();
-                String mediumTermPrompt = "Based on the users top tracks and artists in the last month, write a fun response about their music taste." + "\nUser Top Tracks (in order): " + mediumTrack1.getText().toString() + ", " + mediumTrack2.getText().toString() + ", " + mediumTrack3.getText().toString() + ", " + mediumTrack4.getText().toString() + ", " + mediumTrack5.getText().toString() + "\nUser Top Artists (in order): " + mediumArtist1.getText().toString() + ", " + mediumArtist2.getText().toString() + ", " + mediumArtist3.getText().toString() + ", " + mediumArtist4.getText().toString() + ", " + mediumArtist5.getText().toString();
-                String longTermPrompt = "Based on the users top tracks and artists in the last 6 months, write a fun response about their music taste." + "\nUser Top Tracks (in order): " + longTrack1.getText().toString() + ", " + longTrack2.getText().toString() + ", " + longTrack3.getText().toString() + ", " + longTrack4.getText().toString() + ", " + longTrack5.getText().toString() + "\nUser Top Artists (in order): " + longArtist1.getText().toString() + ", " + longArtist2.getText().toString() + ", " + longArtist3.getText().toString() + ", " + longArtist4.getText().toString() + ", " + longArtist5.getText().toString();
+                String shortTermPrompt = "Based on the users top tracks and artists in the last week, dynamically describe how someone who listens to my kind of music tends to act. " + "\nUser Top Tracks (in order): " + shortTrack1.getText().toString() + ", " + shortTrack2.getText().toString() + ", " + shortTrack3.getText().toString() + ", " + shortTrack4.getText().toString() + ", " + shortTrack5.getText().toString() + "\nUser Top Artists (in order): " + shortArtist1.getText().toString() + ", " + shortArtist2.getText().toString() + ", " + shortArtist3.getText().toString() + ", " + shortArtist4.getText().toString() + ", " + shortArtist5.getText().toString();
+                String mediumTermPrompt = "Based on the users top tracks and artists in the last month, dynamically describe how someone who listens to my kind of music tends to think.  " + "\nUser Top Tracks (in order): " + mediumTrack1.getText().toString() + ", " + mediumTrack2.getText().toString() + ", " + mediumTrack3.getText().toString() + ", " + mediumTrack4.getText().toString() + ", " + mediumTrack5.getText().toString() + "\nUser Top Artists (in order): " + mediumArtist1.getText().toString() + ", " + mediumArtist2.getText().toString() + ", " + mediumArtist3.getText().toString() + ", " + mediumArtist4.getText().toString() + ", " + mediumArtist5.getText().toString();
+                String longTermPrompt = "Based on the users top tracks and artists in the last 6 months, dynamically describe how someone who listens to my kind of music tends to dress " + "\nUser Top Tracks (in order): " + longTrack1.getText().toString() + ", " + longTrack2.getText().toString() + ", " + longTrack3.getText().toString() + ", " + longTrack4.getText().toString() + ", " + longTrack5.getText().toString() + "\nUser Top Artists (in order): " + longArtist1.getText().toString() + ", " + longArtist2.getText().toString() + ", " + longArtist3.getText().toString() + ", " + longArtist4.getText().toString() + ", " + longArtist5.getText().toString();
                 updateTextWithLLM(shortTermPrompt, "short-term");
                 updateTextWithLLM(mediumTermPrompt, "medium-term");
                 updateTextWithLLM(longTermPrompt, "long-term");
 
-                //saveView(shortTermLayout);
-                //saveView(mediumTermLayout);
-                saveView(longTermLayout);
+
 
             }
-        }, 4000);   //5 seconds
+        }, 1000);   //5 seconds
 
 
+        exportButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (viewFlipper.getDisplayedChild() == 0) {
+                    saveView(shortTermLayout);
+                } else if (viewFlipper.getDisplayedChild() == 1) {
+                    saveView(mediumTermLayout);
+                } else {
+                    saveView(longTermLayout);
+                }
 
+                // add dialog to show that the image has been saved
+                AlertDialog.Builder builder = new AlertDialog.Builder(WrapperActivity.this);
+                builder.setMessage("Image has been saved to your downloads folder");
+                builder.setPositiveButton("OK", null);
+
+                AlertDialog dialog = builder.create();
+                dialog.show();
+            }
+        });
 
 
 
@@ -311,14 +334,23 @@ public class WrapperActivity extends AppCompatActivity {
 
 
 
+
+
     }
 
 
     public void previousView(View view) {
+        // get the state of the viewflipper
+        viewFlipper.getDisplayedChild();
+        Log.d("VIEWFLIPPER STATE", "onCreate: " + viewFlipper.getDisplayedChild());
         viewFlipper.showPrevious();
+
     }
 
     public void nextView(View view) {
+        // get the state of the viewflipper
+        viewFlipper.getDisplayedChild();
+        Log.d("VIEWFLIPPER STATE", "onCreate: " + viewFlipper.getDisplayedChild());
         viewFlipper.showNext();
     }
 
@@ -391,55 +423,30 @@ public class WrapperActivity extends AppCompatActivity {
     }
 
     private void saveView(View v){
-        File mediaStorageDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
-        if(mediaStorageDir.exists()){
-            Random r = new Random();
-            int num = r.nextInt(1000000000);
-            String timeString = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
-            String imageName = "IMG_" + num + ".png";
-            String selectedOutputPath = mediaStorageDir.getPath() + File.separator + imageName;
+       // save the linear layout of each term as an image. the thing is, this needs to without the LLM text view because it breaks it
 
-            // based on the view switch the visibility of the text
-
-            if (v == shortTermLayout) {
-                shortLLMText.setVisibility(View.INVISIBLE);
-            } else if (v == mediumTermLayout) {
-                mediumLLMText.setVisibility(View.INVISIBLE);
-            } else {
-                longLLMText.setVisibility(View.INVISIBLE);
-            }
-
-            // set background color to white
-            v.setBackgroundColor(getResources().getColor(android.R.color.white));
-            // add margin of the view
-
-
-            v.setDrawingCacheEnabled(true);
-            v.buildDrawingCache();
-            Bitmap bm = Bitmap.createBitmap(v.getDrawingCache());
-            v.setDrawingCacheEnabled(false);
-
-            v.destroyDrawingCache();
-            OutputStream f = null;
-            try{
-                File file = new File(selectedOutputPath);
-                f = new FileOutputStream(file);
-                bm.compress(Bitmap.CompressFormat.JPEG, 100, f);
-                f.flush();
-                f.close();
-                System.out.println("Downloaded");
-
-            } catch(Exception e){
-                e.printStackTrace();
-            }
-            shortLLMText.setVisibility(View.VISIBLE);
-            mediumLLMText.setVisibility(View.VISIBLE);
-            longLLMText.setVisibility(View.VISIBLE);
-            // set it back to what it was
-            v.setBackgroundColor(getResources().getColor(android.R.color.transparent));
-            // remove the padding
+        // based on the short, medium, or long, set the background of the view
+        if (v == shortTermLayout) {
+            shortTermLayout.setBackgroundResource(R.drawable.circle_background_3);
+        } else if (v == mediumTermLayout) {
+            mediumTermLayout.setBackgroundResource(R.drawable.circle_background_1);
+        } else {
+            longTermLayout.setBackgroundResource(R.drawable.circle_background_2);
         }
-        listDir(mediaStorageDir);
+
+        Bitmap bitmap = Bitmap.createBitmap(v.getWidth(), v.getHeight(), Bitmap.Config.ARGB_8888);
+        v.draw(new Canvas(bitmap));
+        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+        String imageFileName = "JPEG_" + timeStamp + "_";
+        File storageDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
+        File image = new File(storageDir, imageFileName + ".jpg");
+        try {
+            OutputStream fOut = new FileOutputStream(image);
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, fOut);
+            fOut.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
     private void listDir(File path){
         for(File child: path.listFiles()){

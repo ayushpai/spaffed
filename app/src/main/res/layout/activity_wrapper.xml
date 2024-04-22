@@ -44,7 +44,6 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="25dp"
                     android:textStyle="bold"
-                    android:text="@string/your"
                     android:textSize="30sp" />
 
                 <TextView
@@ -640,8 +639,20 @@
         android:text="Back"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="5dp"
-        android:layout_marginStart="5dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginStart="15dp"
+
+        />
+
+    <ImageButton
+        android:id="@+id/export"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/baseline_download_for_offline_24"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="15dp"
 
         />
 
